@@ -76,13 +76,14 @@ func main() {
 		}
 		if isPrefix {
 			log.Printf("line Skipped due to prefix being found: %s", l)
+			continue
 		}
 
 		//logline := processLog(l)
 		res := re.FindAllStringSubmatch(string(l), -1)
 		if len(res) != 1 {
-			continue
 			log.Printf("We had issues parsing this: %s", l)
+			continue
 		}
 		parsedLine := res[0]
 		ll := LogLine{
